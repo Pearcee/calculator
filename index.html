@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#317EFB"/>
+  <meta name="description" content="Calculator">
+
+  <title>Calculator</title>
+  <link rel="apple-touch-icon" sizes="180x180" href=""img/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href=""img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href=""img/icons/favicon-16x16.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="shortcut icon" type="image/x-icon" href="img/icons/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="css/style.min.css">
+  
+</head>
+<body>
+  
+  <div id="calculator" class="calculator">
+    
+    <div class="calculator-keys">
+      <!-- <div id="calculator-display" class="calculator-display"></div> -->
+      
+      <label for="calculator-display" class="visuallyhidden" display=none visibility=hidden>Calculator</label>
+      <input type="text" id="calculator-display" class="calculator-display" value="0" disabled />
+      <button class="calculator-key sp" data-type="allclear" value="all-clear">AC</button>
+      <button class="calculator-key sp" data-type="clear" value="clear">C</button>
+      <button class="calculator-key sp" data-type="posneg" value="posneg">±</button>
+      <button class="calculator-key op" data-type="operator" value="/">&divide;</button>
+
+      <button class="calculator-key nm" data-type="digit" value="7">7</button>
+      <button class="calculator-key nm" data-type="digit" value="8">8</button>
+      <button class="calculator-key nm" data-type="digit" value="9">9</button>
+      <button class="calculator-key op" data-type="operator" value="*">&times;</button>
+
+      <button class="calculator-key nm" data-type="digit" value="4">4</button>
+      <button class="calculator-key nm" data-type="digit" value="5">5</button>
+      <button class="calculator-key nm" data-type="digit" value="6">6</button>
+      <button class="calculator-key op" data-type="operator" value="-">-</button>
+
+      <button class="calculator-key nm" data-type="digit" value="1">1</button>
+      <button class="calculator-key nm" data-type="digit" value="2">2</button>
+      <button class="calculator-key nm" data-type="digit" value="3">3</button>
+      <button class="calculator-key op" data-type="operator" value="+">+</button>
+
+      <button class="calculator-key wide nm" data-type="digit" value="0">0</button>
+      <button class="calculator-key nm" data-type="decimal" value=".">.</button>
+      <button class="calculator-key op" data-type="operator" value="=">=</button>
+    </div>
+  </div>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
+
+<!-- 
+<div class="calculator">
+
+  <input type="text" class="calculator-screen" value="0" disabled />
+  
+  <div class="calculator-keys">
+    
+    <button type="button" class="operator" value="+">+</button>
+    <button type="button" class="operator" value="-">-</button>
+    <button type="button" class="operator" value="*">&times;</button>
+    <button type="button" class="operator" value="/">&divide;</button>
+
+    <button type="button" value="7">7</button>
+    <button type="button" value="8">8</button>
+    <button type="button" value="9">9</button>
+
+
+    <button type="button" value="4">4</button>
+    <button type="button" value="5">5</button>
+    <button type="button" value="6">6</button>
+
+
+    <button type="button" value="1">1</button>
+    <button type="button" value="2">2</button>
+    <button type="button" value="3">3</button>
+
+
+    <button type="button" value="0">0</button>
+    <button type="button" class="decimal function" value=".">.</button>
+    <button type="button" class="all-clear function" value="all-clear">AC</button>
+
+    <button type="button" class="equal-sign operator" value="=">=</button>
+
+  </div>
+</div>
+
+
+ -->
