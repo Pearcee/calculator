@@ -15,19 +15,15 @@
     }
     .wrapper {
     display: grid;
-    border-style: solid;
-    border-color: black;
     grid-template-columns:  repeat(4, 1fr);
     grid-template-rows:     repeat(6, 1fr);
-    grid-gap: 1px;
-    width: 100vw;
-    height: 100vh;
+  grid-auto-rows: minmax(min-content, max-content);
+  height: 100vh;
     font-size: 10vh;
     text-align: center;
     }
     .display {
     float: left;
-    padding: 10;
     text-align: right;
     /*  start on row 2 column 1, and span 2 rows and 3 columns: */
     grid-area: 1 / 1 / 1 / 9;
