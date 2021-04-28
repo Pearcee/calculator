@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    *{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    }
+    .wrapper {
+    display: grid;
+    border-style: solid;
+    border-color: red;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-gap: 10px;
+    width: 100vw;
+    height: 100vh;
+    font-size: 10vh;
+    text-align: center;
+    }
+    .one {
+    border-style: solid;
+    border-color: blue;
+    /*  start on row 2 column 1, and span 2 rows and 3 columns: */
+    /* grid-column: 1 / 4;
+    grid-row: 1; */
+    grid-area: 1 / 1 / 1 / 9;
+    }
+    .two {
+    border-style: solid;
+    border-color: yellow;
+    grid-area: 2 / 1 /  8 / 1;
+    }
+    .three {
+    border-style: solid;
+    border-color: violet;
+    grid-area: 2 / 2 /  8 / 8;
+    }
+    .four {
+    border-style: solid;
+    border-color: aqua;
+    grid-area: 2 / 8 /  8 / 9;
+    }
+    .five {
+    border-style: solid;
+    border-color: green;
+    grid-area: 8 / 1 /  8 / 9;
+    }
+    .six {
+    border-style: solid;
+    border-color: purple;
+    grid-column: 3;
+    grid-row: 4;
+    }
+    </style>
+
+</head>
+
+<div class="wrapper">
+  <div class="one">One</div>
+  <div class="two">Two</div>
+  <div class="three">Three</div>
+  <div class="four">Four</div>
+  <div class="five">Five</div>
+</div>
+</html>

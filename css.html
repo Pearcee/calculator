@@ -10,62 +10,78 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    border: 0.5px solid #777;
+    
     }
     .wrapper {
     display: grid;
     border-style: solid;
-    border-color: red;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 1fr);
-    grid-gap: 10px;
+    border-color: black;
+    grid-template-columns:  repeat(4, 1fr);
+    grid-template-rows:     repeat(6, 1fr);
+    grid-gap: 1px;
     width: 100vw;
     height: 100vh;
     font-size: 10vh;
     text-align: center;
     }
-    .one {
-    border-style: solid;
-    border-color: blue;
+    .display {
+    float: left;
+    padding: 10;
+    text-align: right;
     /*  start on row 2 column 1, and span 2 rows and 3 columns: */
-    /* grid-column: 1 / 4;
-    grid-row: 1; */
     grid-area: 1 / 1 / 1 / 9;
     }
-    .two {
-    border-style: solid;
-    border-color: yellow;
-    grid-area: 2 / 1 /  8 / 1;
-    }
-    .three {
-    border-style: solid;
-    border-color: violet;
-    grid-area: 2 / 2 /  8 / 8;
-    }
-    .four {
-    border-style: solid;
-    border-color: aqua;
-    grid-area: 2 / 8 /  8 / 9;
-    }
-    .five {
-    border-style: solid;
-    border-color: green;
-    grid-area: 8 / 1 /  8 / 9;
-    }
-    .six {
-    border-style: solid;
-    border-color: purple;
-    grid-column: 3;
-    grid-row: 4;
-    }
+    
+    .clear    { grid-area: 2 / 1 ;         }
+    .posneg   { grid-area: 2 / 2 ;         }
+    .percent  { grid-area: 2 / 3 ;         }
+    .div      { grid-area: 2 / 4 ;         }
+    .times    { grid-area: 3 / 4 ;         }
+    .minus    { grid-area: 4 / 4 ;         }
+    .plus     { grid-area: 5 / 4 ;         }
+    .equal    { grid-area: 6 / 4 ;         }
+    .one      { grid-area: 5 / 1 ;         }
+    .two      { grid-area: 5 / 2 ;         }
+    .three    { grid-area: 5 / 3 ;         }
+    .four     { grid-area: 4 / 1 ;         }
+    .five     { grid-area: 4 / 2 ;         }
+    .six      { grid-area: 4 / 3 ;         }
+    .seven    { grid-area: 3 / 1 ;         }
+    .eight    { grid-area: 3 / 2 ;         }
+    .nine     { grid-area: 3 / 3 ;         }
+    .zero     { grid-area: 6 / 1 / 6 / 3 ; }
+    .point    { grid-area: 6 / 3 ;         }
+    .equal    { grid-area: 6 / 4 ;         }
+
     </style>
 
 </head>
 
 <div class="wrapper">
-  <div class="one">One</div>
-  <div class="two">Two</div>
-  <div class="three">Three</div>
-  <div class="four">Four</div>
-  <div class="five">Five</div>
+  <div class="display">0</div>
+  <div class="clear">C</div>
+  <div class="posneg">±</div>
+  <div class="percent">%</div>
+  <div class="div">/</div>
+  
+  <div class="times">&times;</div>
+  <div class="minus">-</div>
+  <div class="plus">+</div>
+
+  <div class="zero">0</div>
+  <div class="one">1</div>
+  <div class="two">2</div>
+  <div class="three">3</div>
+  <div class="four">4</div>
+  <div class="five">5</div>
+  <div class="six">6</div>
+  <div class="seven">7</div>
+  <div class="eight">8</div>  
+  <div class="nine">9</div>
+  <div class="zero">0</div>
+  <div class="point">.</div>
+  <div class="equal">=</div>
+
 </div>
 </html>
