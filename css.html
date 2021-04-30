@@ -7,26 +7,29 @@
     <title>Document</title>
 <style>
     *{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    border: 0.5px solid #777;
-    
+      box-sizing: border-box;
+      margin: 0;
+      border: 0.5px solid #777;
+      text-align: center;
+      font-size: 14vh;
+      text-align: center;
+      align-items: center;
+      padding: 0vh;
+      /* background-color: white; */
     }
     .wrapper {
-    display: grid;
-    grid-template-columns:  repeat(4, 1fr);
-    grid-template-rows:     repeat(6, 1fr);
-  grid-auto-rows: minmax(min-content, max-content);
-  height: 100vh;
-    font-size: 10vh;
-    text-align: center;
+      display: grid;
+      grid-template-columns:  repeat(4, 1fr);
+      grid-template-rows:     repeat(6, 1fr);
+      grid-auto-rows: minmax(min-content, max-content);
+      height: 99vh;
+    
     }
     .display {
-    float: left;
+    /* float: left; */
     text-align: right;
     /*  start on row 2 column 1, and span 2 rows and 3 columns: */
-    grid-area: 1 / 1 / 1 / 9;
+                grid-area: 1 / 1 / 1 / 9;
     }
     
     .clear    { grid-area: 2 / 1 ;         }
@@ -55,29 +58,104 @@
 </head>
 
 <div class="wrapper">
-  <div class="display">0</div>
-  <div class="clear">C</div>
-  <div class="posneg">±</div>
-  <div class="percent">%</div>
-  <div class="div">/</div>
+  <div class="display" id="calculator-display"></div>
   
-  <div class="times">&times;</div>
-  <div class="minus">-</div>
-  <div class="plus">+</div>
-
-  <div class="zero">0</div>
-  <div class="one">1</div>
-  <div class="two">2</div>
-  <div class="three">3</div>
-  <div class="four">4</div>
-  <div class="five">5</div>
-  <div class="six">6</div>
-  <div class="seven">7</div>
-  <div class="eight">8</div>  
-  <div class="nine">9</div>
-  <div class="zero">0</div>
-  <div class="point">.</div>
-  <div class="equal">=</div>
+  <button class="clear"   onclick="key('c')">C</button>
+  <button class="posneg"  onclick="key('±')">±</button>
+  <button class="percent" onclick="key('%')">%</button>  
+  <button class="div"     onclick="key('/')">/</button>
+  <button class="times"   onclick="key('x')">&times;</button>
+  <button class="minus"   onclick="key('-')">-</button>
+  <button class="plus"    onclick="key('+')">+</button>
+  <button class="one"     data-type="digit" value=1 onclick="key(value)">1</button>
+  <button class="two"     data-type="digit" value="2" onclick="key(value)">2</button>
+  <button class="three"   data-type="digit" value="3" onclick="key(value)">3</button>
+  <button class="four"    data-type="digit" value="4" onclick="key(value)">4</button>
+  <button class="five"    data-type="digit" value="5" onclick="key(value)">5</button>
+  <button class="six"     data-type="digit" value="6" onclick="key(value)">6</button>
+  <button class="seven"   data-type="digit" value="7" onclick="key(value)">7</button>
+  <button class="eight"   data-type="digit" value="8" onclick="key(value)">8</button>
+  <button class="nine"    data-type="digit" value="9" onclick="key(value)">9</button>
+  <button class="zero"    data-type="digit" value="0" onclick="key(value)">0</button>
+  <button class="point"   data-type="digit" value="." onclick="key(value)">.</button>
+  <button class="equal"   data-type="operator" value="=" onclick="key(value)">=</button>
 
 </div>
+
+<script>
+  var display = "0";
+  var number  = 0;
+  var op      = ""
+
+  function updateDisplay(no) {
+    console.log(display, no, number);
+    if (display != "0") {
+      display = display + no;
+    } else 
+    {
+      display =  no;
+    }
+    document.getElementById("calculator-display").innerHTML = display;
+  }
+
+  function clearscreen() {
+    display = "0";
+    document.getElementById("calculator-display").innerHTML = display;
+  }
+ 
+  function point() {
+    if (!display.includes(".")) {
+      updateDisplay(".")
+    }
+  }
+
+  function operator(no) {
+    op      = no;
+    number  = display;
+    display = "0";
+  }
+
+  function zero() {
+    console.log(display);
+    if (display = 0) {
+      updateDisplay("0")
+    }
+  }
+
+  function sum() {
+    document.getElementById("calculator-display").innerHTML = display + op + number;
+  }
+
+  function key(no) {
+    console.log(no);
+    switch (no) {
+      case ("1") :
+      case ("2") : 
+      case ("3") :
+      case ("4") : 
+      case ("5") :
+      case ("6") : 
+      case ("7") :
+      case ("8") : 
+      case ("9") :  updateDisplay(no);    break;
+      case ("0") :  updateDisplay(no);    break;
+      case (".") :  point();              break;
+      case ("c") :  clearscreen();        break;
+      case ("±") :        
+      case ("%") : 
+      case ("/") :
+      case ("x") : 
+      case ("-") :
+      case ("+") :  operator(no);    break;
+      case ("=") :  sum();    break;
+      default: console.log(no);           break;
+    }
+  }
+
+
+
+  updateDisplay("0")
+  
+
+  </script>
 </html>
