@@ -28,6 +28,8 @@
     .display {
     /* float: left; */
     text-align: right;
+    overflow: hidden;
+    white-space:nowrap;
     /*  start on row 2 column 1, and span 2 rows and 3 columns: */
                 grid-area: 1 / 1 / 1 / 9;
     }
@@ -86,6 +88,7 @@
   var display = "0";
   var number  = 0;
   var op      = ""
+  var sum =  0
 
   function updateDisplay(no) {
     console.log(display, no, number);
@@ -111,7 +114,7 @@
 
   function operator(no) {
     op      = no;
-    number  = display;
+    number  = parseFloat(display);
     display = "0";
   }
 
@@ -122,8 +125,26 @@
     }
   }
 
-  function sum() {
-    document.getElementById("calculator-display").innerHTML = display + op + number;
+  function negate() {
+    display = parseFloat(display) * -1;
+    document.getElementById("calculator-display").innerHTML = display;
+  }
+
+  function percent() {
+    display = parseFloat(display) / 100;
+    document.getElementById("calculator-display").innerHTML = display;
+  }
+
+  function sums() {
+    switch (op) {
+      case ("/") : sum = parseFloat(number) / parseFloat(display);    break;
+      case ("x") : sum = parseFloat(number) * parseFloat(display);    break;
+      case ("-") : sum = parseFloat(number) - parseFloat(display);    break;
+      case ("+") : sum = parseFloat(number) + parseFloat(display);    break;
+      default: console.log(no);           break;
+    }
+    document.getElementById("calculator-display").innerHTML = sum;
+    display = "0"
   }
 
   function key(no) {
@@ -141,13 +162,13 @@
       case ("0") :  updateDisplay(no);    break;
       case (".") :  point();              break;
       case ("c") :  clearscreen();        break;
-      case ("±") :        
-      case ("%") : 
+      case ("±") :  negate() ; break;     
+      case ("%") :  percent() ; break;
       case ("/") :
       case ("x") : 
       case ("-") :
       case ("+") :  operator(no);    break;
-      case ("=") :  sum();    break;
+      case ("=") :  sums();    break;
       default: console.log(no);           break;
     }
   }
