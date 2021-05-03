@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#317EFB"/>
+  <meta name="description" content="Calculator">
+
+  <title>Calculator</title>
 <style>
     *{
-      box-sizing: border-box;
+      /* box-sizing: border-box; */
       margin: 0;
-      border: 0.5px solid #777;
+      /* border: 0.5px solid #777; */
       text-align: center;
       font-size: 14vh;
       text-align: center;
       align-items: center;
       padding: 0vh;
       /* background-color: white; */
+      /* box-sizing: border-box; */
+      overflow: hidden;
+      /* border: none; */
     }
+
     .wrapper {
       display: grid;
       grid-template-columns:  repeat(4, 1fr);
@@ -58,7 +65,7 @@
     </style>
 
 </head>
-
+<body>
 <div class="wrapper">
   <div class="display" id="calculator-display"></div>
   
@@ -94,22 +101,30 @@
     console.log(display, no, number);
     if (display != "0") {
       display = display + no;
-    } else 
-    {
-      display =  no;
-    }
+    } else {
+      if (no === ".") {
+        display =  "0.";
+      } else {
+        display =  no;
+      }
+       
+    } 
     document.getElementById("calculator-display").innerHTML = display;
   }
 
   function clearscreen() {
-    display = "0";
+    var display = "0";
+    var number  = 0;
+    var op      = ""
+    var sum =  0
     document.getElementById("calculator-display").innerHTML = display;
   }
  
   function point() {
+    
     if (!display.includes(".")) {
       updateDisplay(".")
-    }
+    }     
   }
 
   function operator(no) {
@@ -119,6 +134,7 @@
   }
 
   function zero() {
+
     console.log(display);
     if (display = 0) {
       updateDisplay("0")
@@ -137,14 +153,14 @@
 
   function sums() {
     switch (op) {
-      case ("/") : sum = parseFloat(number) / parseFloat(display);    break;
-      case ("x") : sum = parseFloat(number) * parseFloat(display);    break;
-      case ("-") : sum = parseFloat(number) - parseFloat(display);    break;
-      case ("+") : sum = parseFloat(number) + parseFloat(display);    break;
+      case ("/") : display = parseFloat(number) / parseFloat(display);    break;
+      case ("x") : display = parseFloat(number) * parseFloat(display);    break;
+      case ("-") : display = parseFloat(number) - parseFloat(display);    break;
+      case ("+") : display = parseFloat(number) + parseFloat(display);    break;
       default: console.log(no);           break;
     }
-    document.getElementById("calculator-display").innerHTML = sum;
-    display = "0"
+    document.getElementById("calculator-display").innerHTML = display;
+    // display = "0"
   }
 
   function key(no) {
@@ -158,7 +174,7 @@
       case ("6") : 
       case ("7") :
       case ("8") : 
-      case ("9") :  updateDisplay(no);    break;
+      case ("9") :  
       case ("0") :  updateDisplay(no);    break;
       case (".") :  point();              break;
       case ("c") :  clearscreen();        break;
@@ -176,4 +192,5 @@
   updateDisplay("0")
   
   </script>
+  </body>
 </html>
